@@ -7,6 +7,11 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Payments.WebApi", "Payments
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Payments.WebApi.IntegrationTests", "Payments.WebApi.IntegrationTests\Payments.WebApi.IntegrationTests.fsproj", "{03A87193-930D-4440-8C01-A60C038B7CF7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{7E958828-3850-41CB-92CD-6BCA68714340}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
