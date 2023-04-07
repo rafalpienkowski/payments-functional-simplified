@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Database.fs" />
         <Compile Include="Transaction.fs" />
         <Compile Include="Settings.fs" />
         <Compile Include="Program.fs" />

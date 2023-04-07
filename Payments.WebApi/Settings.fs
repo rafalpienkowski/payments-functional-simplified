@@ -4,13 +4,14 @@ open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
+open Payments.WebApi.Transaction
 
 let webApp =
     choose
-        [ route "/ping" >=> json {| Response = "pong" |} ]
+        [ route "/ping" >=> json {| Response = "pong" |}
+          route "/transactions" >=> GET >=> readTransactions ]
           
           (*
-          route "/" >=> GET >=> readTransactions
           route "/transactions/initialize"
           >=> POST
           >=> initializeTransactionHandler startStream acknowledgeWithProvider appendStream
