@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Payments.WebApi", "Payments.WebApi\Payments.WebApi.fsproj", "{73C05374-4F5A-4D75-8C66-B901922B0FB9}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Payments.WebApi.IntegrationTests", "Payments.WebApi.IntegrationTests\Payments.WebApi.IntegrationTests.fsproj", "{03A87193-930D-4440-8C01-A60C038B7CF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73C05374-4F5A-4D75-8C66-B901922B0FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C05374-4F5A-4D75-8C66-B901922B0FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C05374-4F5A-4D75-8C66-B901922B0FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C05374-4F5A-4D75-8C66-B901922B0FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03A87193-930D-4440-8C01-A60C038B7CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03A87193-930D-4440-8C01-A60C038B7CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03A87193-930D-4440-8C01-A60C038B7CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03A87193-930D-4440-8C01-A60C038B7CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
