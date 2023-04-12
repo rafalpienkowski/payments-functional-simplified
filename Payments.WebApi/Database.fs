@@ -1,5 +1,6 @@
 module Payments.WebApi.Database
 
+open System
 open Npgsql.FSharp
 open Payments.WebApi.Transaction
 open Giraffe
@@ -12,11 +13,11 @@ let getConnectionString (ctx: HttpContext) =
 
 let checkIfQuerySucceeded rowsAffected =
     if rowsAffected = 0 then
-        Error ["Database unavailable"]
+        Error (TransactionError.Database["Database unavailable"])
     else
         Ok rowsAffected
 
-let createTransaction (ctx: HttpContext) (transaction: Transaction): Result<int, string list> =
+let createTransaction (ctx: HttpContext) (transaction: Transaction): Result<int, TransactionError> =
     try
         getConnectionString ctx
             |> Sql.connect
@@ -33,4 +34,10 @@ let createTransaction (ctx: HttpContext) (transaction: Transaction): Result<int,
             |> Sql.executeNonQuery
             |> checkIfQuerySucceeded
             
-    with ex -> Error([ex.Message])
+    with
+    | :? Npgsql.NpgsqlException as npgsqlex ->
+        if npgsqlex.SqlState = "23505" then
+            Error(TransactionError.Validation(["Transaction already exists"]))
+        else
+            Error(TransactionError.Database([ npgsqlex.Message ]))
+    | ex -> Error(TransactionError.Database([ex.Message]))

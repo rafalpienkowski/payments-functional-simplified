@@ -55,7 +55,7 @@ let startTransaction (acknowledgeWithProvider: AcknowledgedWithProvider) : HttpH
                           Status = TransactionStatus.Acknowledged
                           FinishedAt = None }
 
-                    return! createTransaction ctx transaction |> Result.mapError TransactionError.Database
+                    return! createTransaction ctx transaction
                     
                 }
 
