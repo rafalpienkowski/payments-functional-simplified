@@ -1,6 +1,5 @@
 module Payments.WebApi.Database
 
-open System
 open Npgsql.FSharp
 open Payments.WebApi.Transaction
 open Giraffe
