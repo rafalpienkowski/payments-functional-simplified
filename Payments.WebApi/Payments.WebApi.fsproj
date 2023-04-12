@@ -5,14 +5,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Database.fs" />
         <Compile Include="Transaction.fs" />
+        <Compile Include="Database.fs" />
+        <Compile Include="TransactionInitialize.fs" />
+        <Compile Include="ReadTransactions.fs" />
+        <Compile Include="Provider.fs" />
         <Compile Include="Settings.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
     
     <ItemGroup>
         <PackageReference Include="FSharp.SystemTextJson" Version="1.1.23" />
+        <PackageReference Include="FsToolkit.ErrorHandling" Version="4.5.0" />
         <PackageReference Include="Giraffe" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
         <PackageReference Include="Npgsql.FSharp" Version="5.0.1" />
