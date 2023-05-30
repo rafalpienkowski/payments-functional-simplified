@@ -40,7 +40,8 @@ let startTransaction (acknowledgeWithProvider: AcknowledgedWithProvider) : HttpH
 
             let operationResult =
                 result {
-                    let! startTransaction = validateDto request |> Result.mapError TransactionError.Validation
+                    let! startTransaction = validateDto request
+                                            |> Result.mapError TransactionError.Validation
 
                     let! reference =
                         acknowledgeWithProvider startTransaction.TransactionId startTransaction.Amount
