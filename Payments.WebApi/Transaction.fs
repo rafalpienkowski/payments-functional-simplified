@@ -96,7 +96,7 @@ module ProviderReference =
 let produceErrorResponse (error: TransactionError) (next: HttpFunc) (ctx: HttpContext) : HttpFuncResult =
     match error with
     | TransactionError.Validation parsingError -> RequestErrors.badRequest (json parsingError) next ctx
-    | TransactionError.Provider _ -> ServerErrors.serviceUnavailable (json "Ups something went wrong") next ctx
+    | TransactionError.Provider _ -> ServerErrors.gatewayTimeout (json "Ups something went wrong") next ctx
     | TransactionError.Database _ -> ServerErrors.internalError (json "Database unavailable") next ctx
 
 let produceResponse operationResult next ctx : HttpFuncResult =
