@@ -12,12 +12,20 @@ type TransactionError =
 type TransactionStatus =
     | Initialized = 1
     | Acknowledged = 2
+    | Succeeded = 3
+    | Failed = 4
+    | Finished = 5
 
-let transactionStatusString status =
-    match status with
-    | TransactionStatus.Initialized -> "Initialized"
-    | TransactionStatus.Acknowledged -> "Acknowledged"
-    | _ -> ArgumentOutOfRangeException() |> raise
+let enumToString enumValue =
+    enumValue.ToString()
+
+let stringToEnum<'T> (value: string) =
+    Enum.Parse(typeof<'T>, value) :?> 'T
+
+let convertResultStringToList result =
+    match result with
+    | Ok r -> Ok(r)
+    | Error er -> Error([er])
 
 type TransactionId = private TransactionId of Guid
 type CustomerId = private CustomerId of Guid
@@ -35,6 +43,10 @@ type Transaction =
       Amount: Amount
       Status: TransactionStatus }
 
+type ProcessingTransaction =
+    { TransactionId: TransactionId
+      Status: TransactionStatus }
+    
 // Implicit dependency
 type AcknowledgedWithProvider = TransactionId -> Amount -> Result<ProviderReference, string list>
 
@@ -62,6 +74,8 @@ module TransactionId =
 
     let from value =
         ConstrainedType.createGuid "TransactionId" TransactionId value
+        
+    let fromDatabase value = TransactionId value
 
 module Amount =
     let value (Amount amount) = amount

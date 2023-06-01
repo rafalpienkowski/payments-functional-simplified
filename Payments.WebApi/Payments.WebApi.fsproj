@@ -8,6 +8,7 @@
         <Compile Include="Transaction.fs" />
         <Compile Include="Database.fs" />
         <Compile Include="TransactionInitialize.fs" />
+        <Compile Include="TransactionPost.fs" />
         <Compile Include="ReadTransactions.fs" />
         <Compile Include="Provider.fs" />
         <Compile Include="Settings.fs" />

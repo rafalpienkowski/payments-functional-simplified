@@ -6,6 +6,7 @@ open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open Payments.WebApi.TransactionView
 open Payments.WebApi.TransactionInitialize
+open Payments.WebApi.TransactionPost
 open Payments.WebApi.Provider
 
 let webApp =
@@ -14,11 +15,11 @@ let webApp =
           route "/transactions" >=> GET >=> readTransactions
           route "/transactions/initialize"
           >=> POST
-          >=> startTransaction acknowledgeWithProvider ]
-(*
+          >=> startTransaction acknowledgeWithProvider 
           route "/transactions/post"
           >=> POST
-          >=> postTransactionHandler fetchStream appendStream
+          >=> postTransactionHandler ]
+(*
           route "/transactions/confirm"
           >=> POST
           >=> confirmTransactionHandler fetchStream appendStream ]

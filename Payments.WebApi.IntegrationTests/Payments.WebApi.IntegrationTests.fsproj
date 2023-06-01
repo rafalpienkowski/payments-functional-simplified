@@ -13,6 +13,7 @@
         <Compile Include="TransactionHelper.fs" />
         <Compile Include="ReadTransactionsShould.fs" />
         <Compile Include="InitializeTransactionShould.fs" />
+        <Compile Include="PostTransactionShould.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
